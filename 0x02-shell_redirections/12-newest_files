@@ -1,2 +1,2 @@
 #!/bin/bash
-find * -printf '%T+ %p\n' | sort -r | head -10 | cut -f2- -d ' '
+find * -printf '%T+ %p\n' | sort -r | head -10 | cut -d ' ' -f2
