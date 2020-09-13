@@ -1,2 +1,2 @@
 #!/bin/bash
-grep "^[[a-z]]*" /etc/passwd | cut -d':' -f1,6
+grep .  /etc/passwd | cut -d':' -f1,6
