@@ -11,5 +11,5 @@ do
 		y=$(( y + 1))
 	done;
 	x=$(( x + 1 ))
-echo "Hour: 12"
 done;
+echo "Hour: 12"
