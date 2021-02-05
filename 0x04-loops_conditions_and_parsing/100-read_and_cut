@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Display content of etc/passwd
+
+input="/etc/passwd"
+while IFS=: read -r f1 _ f3 _ _ f6 _
+do
+	echo "$f1:$f3:$f6"
+done <"$input"
