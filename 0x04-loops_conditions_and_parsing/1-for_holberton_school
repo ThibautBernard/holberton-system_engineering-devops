@@ -3,5 +3,5 @@
 h='Holberton School'
 for _ in {1..10};
 do
-	echo $h;
+	echo "$h";
 done;
