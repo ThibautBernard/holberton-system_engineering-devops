@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# print 10 times holberton using while loop
+h='Holberton'
+x=1
+until [ $x -gt 10 ]
+do
+	echo $h;
+	x=$(( x + 1 ))
+done;
