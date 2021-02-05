@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # print 10 times holberton using while loop
 x=0
-while [ $x -lt 12 ]
+while [ $x -lt 13 ]
 do
 	y=1
 	echo "Hour: $x"
@@ -12,4 +12,3 @@ do
 	done;
 	x=$(( x + 1 ))
 done;
-echo "Hour: 12"
