@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#displays To infinity and beyond indefinitely.and catch sigterm signal 
+echo $$ >> /var/run/holbertonscript.pid 
+_f1(){
+	echo "I hate the kill command"
+	rm /var/run/holbertonscript.pid
+}
+_del(){
+	rm /var/run/holbertonscript.pid
+}
+trap _f1 SIGTERM
+trap _del SIGQUIT
+trap "echo Y U no love me?!" SIGINT
+x=1
+while [ "$x" ]
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
