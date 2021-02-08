@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# print the  list of currently running hierarchy processes
+ps -afx -u
