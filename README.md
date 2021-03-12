@@ -5,7 +5,7 @@
 * [**Redirections**](https://github.com/ThibautBernard/holberton-system_engineering-devops/tree/master/0x02-shell_redirections) (echo, escape characters, find, cut, sort, head, tail, uniq, grep, cat, rev, >, >>, 2>)
 * [**Variables & Expansions**](https://github.com/ThibautBernard/holberton-system_engineering-devops/tree/master/0x03-shell_variables_expansions) (alias,$USER, arithmetic $(()), $PATH, tr, wc, export, create global variables & create local variables..)
 
-* [**Bash condition, loops, parsing **](https://github.com/ThibautBernard/holberton-system_engineering-devops/tree/master/0x04-loops_conditions_and_parsing)
+* [**Bash condition, loops, parsing**](https://github.com/ThibautBernard/holberton-system_engineering-devops/tree/master/0x04-loops_conditions_and_parsing)
 * [**Processes and signals**](https://github.com/ThibautBernard/holberton-system_engineering-devops/tree/master/0x05-processes_and_signals)
 * [**Regex**](https://github.com/ThibautBernard/holberton-system_engineering-devops/tree/master/0x06-regular_expressions)
 * [**Network basics**](https://github.com/ThibautBernard/holberton-system_engineering-devops/tree/master/0x07-networking_basics)
