@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# start apache service on docker container
+sudo docker exec -ti 31a7e094695f /etc/init.d/apache2 start
