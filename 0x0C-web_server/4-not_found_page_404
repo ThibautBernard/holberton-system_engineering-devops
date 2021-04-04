@@ -9,4 +9,4 @@ sudo cp /var/www/html/index.nginx-debian.html /var/www/html/error.html
 echo "Ceci n'est pas une page" > /var/www/html/error.html
 e="root \/var\/www\/html;\n     error_page 404 \/error.html;"
 sudo sed -i "s/root \/var\/www\/html;/$e/" /etc/nginx/sites-available/default
-sudo systemctl restart nginx
+sudo service nginx restart
