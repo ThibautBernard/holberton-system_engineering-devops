@@ -3,4 +3,4 @@
 sudo apt -y update
 apt-get -y install nginx
 echo "Holberton School for the win!" > /var/www/html/index.nginx-debian.html
-sudo systemctl restart nginx
+sudo service nginx restart
