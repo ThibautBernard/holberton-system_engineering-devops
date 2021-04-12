@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# configure the load balancing
+echo "frontend http
+  bind *:80
+  mode http
+  default_backend web-backend" >> /etc/haproxy/haproxy.cfg
+echo "backend web-backend
+   mode http
+   balance roundrobin
+   server 2533-web-01 34.75.49.246:80 check
+   server 2533-web-02 104.196.144.160:80 check" >> /etc/haproxy/haproxy.cfg
