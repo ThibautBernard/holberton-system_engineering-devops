@@ -1,18 +1,7 @@
 #!/usr/bin/env bash
 # configure the load balancing
-sudo apt -y update
-sudo apt-get -y install nginx
-echo "Holberton School for the win!" > /var/www/html/index.nginx-debian.html
-n="server_name _;\n     location \/redirect_me { \n         return 301 youtube.com; \n      }"
-sudo sed -i "s/server_name _;/$n/" /etc/nginx/sites-available/default
-sudo cp /var/www/html/index.nginx-debian.html /var/www/html/error.html
-echo "Ceci n'est pas une page" > /var/www/html/error.html
-e="root \/var\/www\/html;\n     error_page 404 \/error.html;"
-sudo sed -i "s/root \/var\/www\/html;/$e/" /etc/nginx/sites-available/default
-# h=$(hostname | grep web | cut -d '-' -f2,3,4)
-h=$(hostname)
-e="root \/var\/www\/html;\n       add_header X-Served-By $h;"
-sudo sed -i "s/root \/var\/www\/html;/$e/" /etc/nginx/sites-available/default
+sudo apt-get -y update
+sudo apt-get -y install haproxy
 echo "frontend http
   bind *:80
   mode http
@@ -24,4 +13,3 @@ echo "backend web-backend
    server 2533-web-02 104.196.144.160:80 check" >> /etc/haproxy/haproxy.cfg
 echo "ENABLED=1" >> /etc/default/haproxy
 sudo service haproxy restart
-sudo service nginx restart
