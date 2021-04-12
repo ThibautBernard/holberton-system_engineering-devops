@@ -4,9 +4,9 @@ exec { 'update':
 }
 
 package { 'nginx':
-    ensure   => 'installed',
-    name     => 'nginx',
-    provider => 'apt',
+    ensure  => 'installed',
+    name    => 'nginx',
+    require => Exec['update'],
 }
 
 file { '/var/www/html/index.html':
