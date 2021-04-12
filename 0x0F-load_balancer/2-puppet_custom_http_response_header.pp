@@ -4,8 +4,9 @@ exec { 'update':
 }
 
 package { 'nginx':
-  ensure   => installed,
-  provider => 'apt'
+    ensure   => 'installed',
+    name     => 'nginx',
+    provider => 'apt',
 }
 
 file { '/var/www/html/index.html':
@@ -14,22 +15,25 @@ file { '/var/www/html/index.html':
   mode    => '0644',
   owner   => 'root',
   group   => 'root',
-  content => 'Holberton School for the win!'
+  content => 'Holberton School for the win!',
+  require => Package['nginx'],
 }
 
 file_line { 'redirect_me':
-  ensure => 'present',
-  path   => '/etc/nginx/sites-available/default',
-  after  => 'root /var/www/html;',
-  line   => 'rewrite ^/redirect_me https://www.twitch.com permanent;',
+  ensure  => 'present',
+  path    => '/etc/nginx/sites-available/default',
+  after   => 'root /var/www/html;',
+  line    => '   rewrite ^/redirect_me https://www.twitch.com permanent;',
+  require => Package['nginx'],
 }
 
 $d = $::hostname
 file_line { 'add_header':
-  ensure => 'present',
-  path   => '/etc/nginx/sites-available/default',
-  after  => 'listen 80 default_server;',
-  line   => "add_header X-Served-By ${d};",
+  ensure  => 'present',
+  path    => '/etc/nginx/sites-available/default',
+  after   => 'listen 80 default_server;',
+  line    => "   add_header X-Served-By ${d};",
+  require => Package['nginx'],
 }
 service { 'nginx':
   ensure  => running,
