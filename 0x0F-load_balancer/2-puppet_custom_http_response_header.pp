@@ -27,8 +27,8 @@ file { '/var/www/html/index.html':
 file_line { 'redirect_me':
   ensure => 'present',
   path   => '/etc/nginx/sites-available/default',
-  after  => 'listen 80 default_server;',
-  line   => '\trewrite ^/redirect_me https://www.twitch.com permanent;',
+  after  => 'root /var/www/html;',
+  line   => '   rewrite ^/redirect_me https://www.twitch.com permanent;',
 }
 
 $d = $::hostname
