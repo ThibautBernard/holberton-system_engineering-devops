@@ -1,11 +1,4 @@
-# add custom header
-# $h = generate ('/bin/bash', '$HOSTNAME')
-# exec { 'update value page':
-#    command  => 'sed -i "s/root \/var\/www\/html;/root \/var\/www\/html;\n
-# add_header X-Served-By ${blah} ;/" /etc/nginx/sites-available/default',
-#    provider => 'shell',
-# }
-
+# install if needed nginx, file index and add header var
 exec { 'update':
   command => '/usr/bin/apt-get update',
 }
@@ -36,7 +29,7 @@ file_line { 'add_header':
   ensure => 'present',
   path   => '/etc/nginx/sites-available/default',
   after  => 'listen 80 default_server;',
-  line   => "\tadd_header X-Served-By ${d};",
+  line   => "   add_header X-Served-By ${d};",
 }
 service { 'nginx':
   ensure  => running,
