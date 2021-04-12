@@ -1,5 +1,5 @@
 # add custom header
-$h = generate ('/bin/bash', '-c', 'echo $HOSTNAME')
+$h = generate ('/bin/bash', 'echo $HOSTNAME')
 file_line { 'add_header':
   ensure => 'present',
   path   => '/etc/nginx/sites-available/default',
