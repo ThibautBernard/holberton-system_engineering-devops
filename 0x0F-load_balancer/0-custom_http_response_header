@@ -11,6 +11,6 @@ e="root \/var\/www\/html;\n     error_page 404 \/error.html;"
 sudo sed -i "s/root \/var\/www\/html;/$e/" /etc/nginx/sites-available/default
 # h=$(hostname | grep web | cut -d '-' -f2,3,4)
 h=$(hostname)
-e="sendfile on;\n       add_header X-Served-By $h;"
-sudo sed -i "s/sendfile on;/$e/" /etc/nginx/nginx.conf
+e="root \/var\/www\/html;\n       add_header X-Served-By $h;"
+sudo sed -i "s/root \/var\/www\/html;/$e/" /etc/nginx/sites-available/default
 sudo service nginx restart
