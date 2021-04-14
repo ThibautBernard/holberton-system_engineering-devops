@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# listen port 80 and erase pid stored by service
+sudo sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
+service nginx restart
+echo '' > /run/nginx.pid
