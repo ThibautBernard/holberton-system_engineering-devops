@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# dig domain name and parse informations
+dom_name=$1
+sub_domain=$2
+parse_display() {
+    if [ $# -eq 2 ]
+    then
+        search="$2.$1"
+        sub=$(dig "$search" | grep -A1 'ANSWER SECTION:' | awk '{ print $1}' | tail -1 | cut -d '.' -f 1)
+        a_rec=$(dig "$search" | grep -A1 'ANSWER SECTION:' | awk '{ print $4}' | tail -1 | cut -d '.' -f 1)
+        ip=$(dig "$search" | grep -A1 'ANSWER SECTION:' | awk '{ print $5}' | tail -1 )
+        echo "The subdomain $sub is a $a_rec record and points to $ip"
+    else
+        sub=$(dig www.hbnbfr.tech | grep -A1 'ANSWER SECTION:' | awk '{ print $1}' | tail -1 | cut -d '.' -f 1)
+        a_rec=$(dig www.hbnbfr.tech | grep -A1 'ANSWER SECTION:' | awk '{ print $4}' | tail -1 | cut -d '.' -f 1)
+        ip=$(dig www.hbnbfr.tech | grep -A1 'ANSWER SECTION:' | awk '{ print $5}' | tail -1 )    
+        echo "The subdomain $sub is a $a_rec record and points to $ip"
+        
+        sub=$(dig lb-01.hbnbfr.tech | grep -A1 'ANSWER SECTION:' | awk '{ print $1}' | tail -1 | cut -d '.' -f 1)
+        a_rec=$(dig lb-01.hbnbfr.tech | grep -A1 'ANSWER SECTION:' | awk '{ print $4}' | tail -1 | cut -d '.' -f 1)
+        ip=$(dig lb-01.hbnbfr.tech | grep -A1 'ANSWER SECTION:' | awk '{ print $5}' | tail -1 )    
+        echo "The subdomain $sub is a $a_rec record and points to $ip"
+        
+        sub=$(dig web-01.hbnbfr.tech | grep -A1 'ANSWER SECTION:' | awk '{ print $1}' | tail -1 | cut -d '.' -f 1)
+        a_rec=$(dig web-01.hbnbfr.tech | grep -A1 'ANSWER SECTION:' | awk '{ print $4}' | tail -1 | cut -d '.' -f 1)
+        ip=$(dig web-01.hbnbfr.tech | grep -A1 'ANSWER SECTION:' | awk '{ print $5}' | tail -1 )    
+        echo "The subdomain $sub is a $a_rec record and points to $ip"
+        
+        sub=$(dig web-02.hbnbfr.tech | grep -A1 'ANSWER SECTION:' | awk '{ print $1}' | tail -1 | cut -d '.' -f 1)
+        a_rec=$(dig web-02.hbnbfr.tech | grep -A1 'ANSWER SECTION:' | awk '{ print $4}' | tail -1 | cut -d '.' -f 1)
+        ip=$(dig web-02.hbnbfr.tech | grep -A1 'ANSWER SECTION:' | awk '{ print $5}' | tail -1 )    
+        echo "The subdomain $sub is a $a_rec record and points to $ip"
+    fi
+
+}
+if [ $# -eq 2 ]
+then
+    parse_display "$dom_name" "$sub_domain"
+else
+    parse_display "$dom_name"
+fi
