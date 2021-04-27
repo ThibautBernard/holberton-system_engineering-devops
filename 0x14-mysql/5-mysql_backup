@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # export all databases and create an archive
-mysqldump -u root -p $1 --all-databases > backup.sql | gzip > $(date +%d%m%Y).gz
+mysqldump -u root -p $1 --all-databases > backup.sql 
+gzip backup.sql > $(date +%d%m%Y).gz
