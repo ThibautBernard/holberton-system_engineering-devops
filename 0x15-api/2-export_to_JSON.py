@@ -29,5 +29,5 @@ if __name__ == "__main__":
         d_task['username'] = name_user
         list_tasks.append(d_task)
     d[info_user['id']] = list_tasks
-    with open('{}.json'.format(info_user['id']), 'w', newline='') as file:
-        json.dump(d, file)
+    with open('{}.json'.format(sys.argv[1]), 'w') as f:
+        json.dump(d, f)
