@@ -21,10 +21,8 @@ if __name__ == "__main__":
         list_tasks = []
         for content in rq:
             d_task = {}
-            task = "{}".format(content['title'])
-            complet = "{}".format(content['completed'])
-            d_task['task'] = task
-            d_task['completed'] = complet
+            d_task['task'] = content['title']
+            d_task['completed'] = content['completed']
             d_task['username'] = user['username']
             list_tasks.append(d_task)
         d[user['id']] = list_tasks
