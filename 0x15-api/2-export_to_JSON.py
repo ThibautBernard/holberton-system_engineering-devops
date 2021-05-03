@@ -21,10 +21,8 @@ if __name__ == "__main__":
         list_tasks = []
         for content in response:
             d_task = {}
-            task = "{}".format(content['title'])
-            complet = "{}".format(content['completed'])
-            d_task['task'] = task
-            d_task['completed'] = complet
+            d_task['task'] = content['title']
+            d_task['completed'] = content['completed']
             d_task['username'] = name_user
             list_tasks.append(d_task)
         d[sys.argv[1]] = list_tasks
