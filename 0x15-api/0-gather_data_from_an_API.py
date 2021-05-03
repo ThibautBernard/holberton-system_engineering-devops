@@ -19,4 +19,4 @@ if __name__ == "__main__":
     print(tmp.format(name_user, len(task_completed), total_tasks))
     for content in response:
         if content['completed']:
-            print("\t{}".format(content['title']))
+            print("\t {}".format(content['title']))
