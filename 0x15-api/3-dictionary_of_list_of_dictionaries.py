@@ -12,31 +12,21 @@ if __name__ == "__main__":
     req = "https://jsonplaceholder.typicode.com/todos"
     response = requests.get(req).json()
     d = {}
-    list_tasks = []
-    prev_user_id = 1
-    req_user = "https://jsonplaceholder.typicode.com/users/1"
-    info_user = requests.get(req_user).json()
-    name_user = info_user['username']
-    for content in response:
-        """
-            check if the user of the task has changed
-            if has changed, request the name of the new user
-            add into the dict new key (the user id) and all tasks
-        """
-        if content['userId'] != prev_user_id:
-            req_user = "https://jsonplaceholder.typicode.com/users/{}"\
-                      .format(content['userId'])
-            info_user = requests.get(req_user).json()
-            name_user = info_user['username']
-            d[prev_user_id] = list_tasks
-            list_tasks = []
-        d_task = {}
-        task = "{}".format(content['title'])
-        complet = "{}".format(content['completed'])
-        d_task['username'] = name_user
-        d_task['task'] = task
-        d_task['completed'] = complet
-        list_tasks.append(d_task)
-        prev_user_id = content['userId']
+    req_user = "https://jsonplaceholder.typicode.com/users"
+    users = requests.get(req_user).json()
+    for user in users:
+        reso_todos = "https://jsonplaceholder.typicode.com/users/{}/todos"\
+              .format(user['id'])
+        rq = requests.get(reso_todos).json()
+        list_tasks = []
+        for content in rq:
+            d_task = {}
+            task = "{}".format(content['title'])
+            complet = "{}".format(content['completed'])
+            d_task['task'] = task
+            d_task['completed'] = complet
+            d_task['username'] = user['username']
+            list_tasks.append(d_task)
+        d[user['id']] = list_tasks
     with open('todo_all_employees.json', 'w') as f:
         json.dump(d, f)
