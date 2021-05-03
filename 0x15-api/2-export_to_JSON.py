@@ -17,7 +17,7 @@ if __name__ == "__main__":
     req_use = "https://jsonplaceholder.typicode.com/users/{}"\
               .format(sys.argv[1])
     info_user = requests.get(req_use).json()
-    name_user = info_user['name']
+    name_user = info_user['username']
     d = {}
     list_tasks = []
     for content in response:
