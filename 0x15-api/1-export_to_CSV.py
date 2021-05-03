@@ -16,7 +16,8 @@ if __name__ == "__main__":
         req_use = "https://jsonplaceholder.typicode.com/users/{}"\
                   .format(sys.argv[1])
         info_user = requests.get(req_use).json()
-        name_user = info_user['name']
+        print(info_user)
+        name_user = info_user.get('username')
         with open('{}.csv'.format(sys.argv[1]), 'w') as f:
             writer = csv.writer(f, quoting=csv.QUOTE_ALL)
             for content in response:
