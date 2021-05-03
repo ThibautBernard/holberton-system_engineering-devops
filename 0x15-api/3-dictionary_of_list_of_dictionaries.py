@@ -38,5 +38,5 @@ if __name__ == "__main__":
         d_task['username'] = name_user
         list_tasks.append(d_task)
         prev_user_id = content['userId']
-    with open('todo_all_employees.json', 'w', newline='') as file:
-        json.dump(d, file)
+    with open('todo_all_employees.json', 'w') as f:
+        json.dump(d, f)
