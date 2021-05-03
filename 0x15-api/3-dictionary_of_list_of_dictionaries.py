@@ -16,7 +16,7 @@ if __name__ == "__main__":
     prev_user_id = 1
     req_user = "https://jsonplaceholder.typicode.com/users/1"
     info_user = requests.get(req_user).json()
-    name_user = info_user['name']
+    name_user = info_user['username']
     for content in response:
         """
             check if the user of the task has changed
@@ -27,7 +27,7 @@ if __name__ == "__main__":
             req_user = "https://jsonplaceholder.typicode.com/users/{}"\
                       .format(content['userId'])
             info_user = requests.get(req_user).json()
-            name_user = info_user['name']
+            name_user = info_user['username']
             d[prev_user_id] = list_tasks
             list_tasks = []
         d_task = {}
