@@ -33,9 +33,9 @@ if __name__ == "__main__":
         d_task = {}
         task = "{}".format(content['title'])
         complet = "{}".format(content['completed'])
+        d_task['username'] = name_user
         d_task['task'] = task
         d_task['completed'] = complet
-        d_task['username'] = name_user
         list_tasks.append(d_task)
         prev_user_id = content['userId']
     with open('todo_all_employees.json', 'w') as f:
