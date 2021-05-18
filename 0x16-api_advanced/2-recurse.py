@@ -13,9 +13,10 @@ def recurse(subreddit, hot_list=[], counter=0, after='t3_'):
     result = requests.get(url, headers=headers)
     if result.status_code == 404 or len(result.json()) == 0:
         return None
+    elif after == 'null' or result.json()['data']['after'] == after:
+        return hot_list
     else:
         hot_list.append(result.json()['data']['children'][0]['data']['title'])
         counter += 1
         after = result.json()['data']['after']
         recurse(subreddit, hot_list, counter, after)
-        return hot_list
