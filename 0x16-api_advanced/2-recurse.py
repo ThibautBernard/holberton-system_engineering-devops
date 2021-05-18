@@ -18,8 +18,6 @@ def recurse(subreddit, hot_list=[], after='t3_'):
     else:
         for element in result.json()['data']['children']:
             hot_list.append(element['data']['title'])
-        # hot_list.append(result.json()['data']['children'][0]['data']['title'])
-        # counter += 1
         after = result.json()['data']['after']
         recurse(subreddit, hot_list, after)
         return hot_list
