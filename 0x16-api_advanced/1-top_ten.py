@@ -15,4 +15,3 @@ def top_ten(subreddit):
     else:
         for element in result.json()['data']['children']:
             print(element['data']['title'])
-    # print(result.json()['data']['children'][0]['data']['title'])

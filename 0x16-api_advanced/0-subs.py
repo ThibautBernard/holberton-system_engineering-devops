@@ -2,7 +2,7 @@
 """
     Request api reddit and return number of subscribers
     for a specific subreddit
-""""
+"""
 import requests
 
 
