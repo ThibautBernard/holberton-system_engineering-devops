@@ -14,7 +14,8 @@ def recursion(subreddit, dict_word, after):
     headers = {'user-agent': 'my-app/0.0.1'}
     result = requests.get(url, headers=headers)
     if result.status_code == 404 or len(result.json()) == 0:
-        return None
+        print('')
+        return
     elif after == 'null' or after is None:
         keys = list(dict_word.keys())
         vals = list(dict_word.values())
