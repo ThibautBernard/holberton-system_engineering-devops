@@ -1,4 +1,4 @@
-# line number 1
+ne number 1
 
 # Default server configuration
 #
@@ -22,9 +22,17 @@ server {
      error_page 404 /error.html;
     index index.html index.htm index.nginx-debian.html;
     # Add index.pline number 1
-   location / {
+   location /airbnb-onepage/ {
         include proxy_params;
     proxy_pass http://127.0.0.1:5000;
+    }
+   location /api {
+        include proxy_params;
+    proxy_pass http://127.0.0.1:5002;
+    }
+   location /airbnb-dynamic/number_odd_or_even/ {
+        include proxy_params;
+    proxy_pass http://127.0.0.1:5001/number_odd_or_even/;
     }
 
     server_name _;
