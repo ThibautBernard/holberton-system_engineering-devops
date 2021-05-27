@@ -1,0 +1,11 @@
+[Unit]
+Description = app start
+After = network.target
+
+[Service]
+User = ubuntu
+WorkingDirectory = /home/ubuntu/AirBnB_clone_v4
+ExecStart = /home/ubuntu/.local/bin/gunicorn --bind 0.0.0.0:5003 web_dynamic.2-hbnb:app
+
+[Install]
+WantedBy = multi-user.target
